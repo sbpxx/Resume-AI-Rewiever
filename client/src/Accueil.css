@@ -1,0 +1,32 @@
+.video {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+
+
+video {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+  z-index: -1;
+}
+
+.title{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  height: 100%;
+  font-size: 4vw;
+  color: aliceblue;
+}
+
+.title-text{
+  transform: translateY(-20px);
+}
+
