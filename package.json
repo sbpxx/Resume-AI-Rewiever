@@ -1,0 +1,27 @@
+{
+  "name": "resume-ai-rewiever",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "docker compose up -d && concurrently \"npm run server\" \"npm run client\"",
+    "server": "cd server && node index.js",
+    "client": "cd client && npm run dev",
+    "stop": "docker compose down"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sbpxx/Resume-AI-Rewiever.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/sbpxx/Resume-AI-Rewiever/issues"
+  },
+  "homepage": "https://github.com/sbpxx/Resume-AI-Rewiever#readme",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
+}
