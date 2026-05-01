@@ -1,43 +1,46 @@
 nav {
     display:flex;
     align-items: center;
-    border-radius: 0px 0px 10px 10px;
     justify-content: space-between;
     background-color: #00002833;
     position: fixed;
-    left: 30px;
-    right: 30px;
-    color: #ffffff;
-    font-family: Cinzel, sherif;
-    font-style: italic;
-    font-weight: bold;
-    z-index: 9999;
+    left: 0;
+    right: 0;
+    top: 0;
+    font-family: 'Cormorant Garamond', sherif;
+    z-index: 100;
+    padding: 20px 48px;
+    background: linear-gradient(to bottom, rgba(7,16,31,0.85) 0%, transparent 100%);
+    backdrop-filter: blur(0px);
 }
 
 nav a {
     margin: 0 0 0 30px;
-    font-size: 46px;
+    font-size: 22px;
     left: 0;
     text-decoration: none;
     color : inherit;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Cormorant Garamond', sherif;
+    color: #f9f0dc;
 }
 
 nav button{
-    margin: 0 30px 0 30px;
-    border-radius: 5px;
-    width: 130px;
-    height: 40px;
-    color:#BAA9FF;
-    font-size: 20px;
-    font-style: italic;
+    padding: 8px 20px;
+    border: 1px solid #d4a44c;
+    border-radius: 4px;
+    color: #e8c06a;
+    transition: background 0.2s, color 0.2s;
+    background-color: #07101f00;
+    font-family: 'Cormorant Garamond', sherif;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
     font-weight: bold;
-    background-color: #6938fe00;
-    backdrop-filter: blur(2px);
-    transition: transform 0.3s ease;
 }
 nav button:hover{
-    box-shadow: 0px 0px 10px white;
-    transform: translateY(-3px);
+    background: #d4a44c;
+    color: #07101f;
 }
 
 nav ul {
@@ -50,6 +53,8 @@ nav ul {
 
 nav ul li{
     transition: transform 0.3s ease;
+    margin-right: 30px;
+    margin-bottom: 5px;
 }
 nav ul li:hover {
     transform: translateY(-3px);
@@ -58,7 +63,10 @@ nav ul li:hover {
 nav ul li a {
     margin: 0px 20px;
     list-style-type: none;
-    font-size: 25px;
+    font-size: 15px;
+    font-weight: 400;
+    align-items: left;
+    color: #e8e0d0;
 }
 
 
