@@ -5,7 +5,52 @@
 }
 
 body{
-  margin:0;
-  background-color: #020238;
+  background: #07101f;
+  color: #e8e0d0;
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 300;
   overflow-x: hidden;
+}
+
+.stars-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.star-dot {
+  position: absolute;
+  background: white;
+  border-radius: 50%;
+  opacity: 0;
+  animation: twinkle var(--dur, 4s) ease-in-out infinite var(--delay, 0s);
+}
+
+@keyframes twinkle {
+  0%, 100% { opacity: 0; transform: scale(0.5); }
+  50% { opacity: var(--op, 0.6); transform: scale(1); }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 900px) {
+  nav { padding: 16px 24px; }
+  section, .section-inner { padding: 60px 24px; }
+  .problem-grid { grid-template-columns: 1fr; }
+  .tarifs-grid { grid-template-columns: 1fr; }
+  .avis-grid { grid-template-columns: 1fr; }
+  .footer-top { grid-template-columns: 1fr 1fr; }
+  #essai, #newsletter { padding: 48px 28px; }
+  .newsletter-form { flex-direction: column; }
 }

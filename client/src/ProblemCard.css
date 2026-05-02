@@ -1,0 +1,55 @@
+.problem-card{
+background: linear-gradient(135deg, rgba(17, 34, 64, 0.7) 0%, rgba(13, 27, 46, 0.5) 100%);
+border: 1px solid rgba(212, 164, 76, 0.15);
+border-radius: 12px;
+padding: 40px 32px;
+display: flex;
+flex-direction: column;
+gap: 18px;
+transition: border-color 0.3s, transform 0.3s;
+}
+
+.problem-card:hover {
+border-color: rgba(212,164,76,0.4);
+transform: translateY(-10px);
+}
+
+
+.emoji-card{
+font-size: 36px;
+line-height: 1;
+}
+
+.title-card{
+color:#f9f0dc;
+font-family: 'Cormorant Garamond', serif;
+font-size: 24px;
+font-weight: 500;
+height: 40px;
+margin-bottom: 15px;
+}
+
+.text-card{
+color: #8FA0B8;
+font-size: 15px;
+line-height: 1.7;
+height: 100px;
+}
+
+.value-card{
+color: #d4a44c;
+font-size: 30px;
+height: 20px;
+margin-bottom: 5px;
+font-family: 'Cormorant Garamond', serif;
+}
+
+.text-value-card{
+font-size: 12px;
+transform: translateX(15px);
+display: block;
+font-family: 'DM Sans', sans-serif;
+letter-spacing: 0.1em;
+color: #8FA0B8;
+margin-top: 4px;
+}

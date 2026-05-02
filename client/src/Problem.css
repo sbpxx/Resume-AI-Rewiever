@@ -1,0 +1,43 @@
+#problem{
+    height: 100vh;
+    position: relative;
+    min-height: 640px;
+    overflow: hidden;
+    margin:auto;
+}
+
+.problem-head{
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 100px 48px;
+    letter-spacing: 0.08em;
+}
+
+.head-title{
+    font-size: 1em;
+    color:#d4a44c;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    font-family: 'Courier New', Courier, monospace;
+    margin-bottom: 20px;
+}
+
+.cool-line{
+    font-size:3em;
+    color: #f9f0dc;
+    font-family: 'Cormorant Garamond', serif;
+    margin-bottom: 20px;
+}
+
+.explanation-line{
+    font-size: 1.25em;
+    font-family:'Times New Roman', Times, serifs;
+    color: #8FA0B8;
+}
+
+.problem-card-section{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 56px;
+}
