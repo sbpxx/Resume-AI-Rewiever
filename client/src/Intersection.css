@@ -1,0 +1,10 @@
+.intersection{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #d4a44c;
+  font-size: 20px;
+  width: 100px;
+  margin:auto;
+  gap: 30px;
+}

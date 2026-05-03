@@ -1,0 +1,41 @@
+#solution{
+  height: 100vh;
+  position: relative;
+  min-height: 640px;
+  overflow: hidden;
+  margin:auto;
+}
+
+.solution-head{
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 48px;
+  letter-spacing: 0.08em;
+}
+
+.head-title{
+  font-size: 1em;
+  color:#d4a44c;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Courier New', Courier, monospace;
+  margin-bottom: 20px;
+}
+
+.cool-line{
+  font-size:3em;
+  color: #f9f0dc;
+  font-family: 'Cormorant Garamond', serif;
+  margin-bottom: 20px;
+}
+
+.cool-line em {
+  color: #F5DFA0;
+}
+
+.explanation-line{
+  font-size: 1.25em;
+  font-family:'Times New Roman', Times, serifs;
+  color: #8FA0B8;
+}
+

@@ -11,8 +11,9 @@ export function Problem(){
           que le silence des recruteurs.
         </p>
         <p className="explanation-line">
-          Chaque année, des milliers de candidats qualifiés sont écartés avant même qu'un humain lise leur dossier.
-           La raison ? Un CV qui ne répond pas aux critères des algorithmes de tri automatique.
+          Chaque année, des milliers de candidats qualifiés sont écartés avant même <br/> 
+          qu'un humain lise leur dossier.La raison ? Un CV qui ne répond pas aux critères <br/> 
+          des algorithmes de tri automatique.
         </p>
         <div className="problem-card-section">
         <ProblemCard 
