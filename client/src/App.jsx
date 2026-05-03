@@ -5,6 +5,7 @@ import { Accueil } from './Accueil'
 import { Problem } from './Problem'
 import { Intersection } from './Intersection'
 import { Solution } from './Solution'
+import { Essai } from './Essai'
 
 function App() {
   const [isLogged,setIsLogged] = useState(false)
@@ -16,6 +17,8 @@ function App() {
     <Problem></Problem>
     <Intersection></Intersection>
     <Solution></Solution>
+    <Intersection></Intersection>
+    <Essai></Essai>
     <Intersection></Intersection>
     </>
   )
