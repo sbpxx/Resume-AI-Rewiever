@@ -8,6 +8,7 @@ import { Solution } from './Solution'
 import { Essai } from './Essai'
 import { Tarifs } from './Tarifs'
 import { Avis } from './Avis'
+import { Newsletter } from './Newsletter'
 
 function App() {
   const [isLogged,setIsLogged] = useState(false)
@@ -26,6 +27,7 @@ function App() {
     <Intersection></Intersection>
     <Avis></Avis>
     <Intersection></Intersection>
+    <Newsletter></Newsletter>
     </>
   )
 }

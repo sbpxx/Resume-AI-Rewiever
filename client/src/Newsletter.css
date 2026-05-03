@@ -1,0 +1,121 @@
+.newsletter-wrapper {
+  width: 100%;
+  padding: 0 48px 100px;
+}
+
+#newsletter {
+  background: linear-gradient(135deg, rgba(212, 164, 76, 0.08) 0%, rgba(13, 27, 46, 0.3) 100%);
+  border: 1px solid rgba(212, 164, 76, 0.15);
+  border-radius: 20px;
+  max-width: 720px;
+  margin: 0 auto;
+  padding: 80px 64px;
+  text-align: center;
+}
+
+.newsletter-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #d4a44c;
+  margin-bottom: 16px;
+}
+
+.newsletter-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #f9f0dc;
+  margin-bottom: 12px;
+}
+
+.newsletter-title em {
+  font-style: italic;
+  color: #f5dfa0;
+}
+
+.newsletter-intro {
+  font-size: 17px;
+  line-height: 1.75;
+  color: #8fa0b8;
+  max-width: 440px;
+  margin: 0 auto;
+}
+
+.newsletter-form {
+  display: flex;
+  gap: 12px;
+  margin-top: 40px;
+  max-width: 480px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.newsletter-input {
+  flex: 1;
+  padding: 14px 20px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(212, 164, 76, 0.25);
+  border-radius: 6px;
+  color: #f9f0dc;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.newsletter-input::placeholder {
+  color: #8fa0b8;
+}
+
+.newsletter-input:focus {
+  border-color: #d4a44c;
+}
+
+.btn-newsletter {
+  white-space: nowrap;
+  padding: 14px 28px;
+  background: #d4a44c;
+  color: #07101f;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.25s;
+}
+
+.btn-newsletter:hover {
+  background: #e8c06a;
+}
+
+.btn-newsletter.btn-success {
+  background: #112240;
+  color: #e8c06a;
+  border: 1px solid #d4a44c;
+}
+
+.newsletter-note {
+  margin-top: 16px;
+  font-size: 12px;
+  color: #8fa0b8;
+}
+
+@media (max-width: 900px) {
+  .newsletter-wrapper {
+    padding: 0 24px 60px;
+  }
+
+  #newsletter {
+    padding: 48px 28px;
+  }
+
+  .newsletter-form {
+    flex-direction: column;
+  }
+}
