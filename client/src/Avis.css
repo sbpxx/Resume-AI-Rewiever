@@ -1,0 +1,52 @@
+.full-section {
+  width: 100%;
+}
+
+.section-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 48px;
+}
+
+.section-inner.centered {
+  text-align: center;
+}
+
+.avis-section-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #d4a44c;
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+.avis-section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 400;
+  line-height: 1.15;
+  color: #f9f0dc;
+  margin-bottom: 56px;
+  text-align: center;
+}
+
+.avis-section-title em {
+  font-style: italic;
+  color: #f5dfa0;
+}
+
+.avis-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  text-align: left;
+}
+
+@media (max-width: 900px) {
+  .avis-grid {
+    grid-template-columns: 1fr;
+  }
+}
