@@ -28,8 +28,9 @@ const upload = configurationStorage()
 
 app.post('/analyse', upload.single('cv'), async (req, res) => {
   const file = req.file
-  const text = await extractText(file)
-  res.json({ text })
+  const text = await extractText(req.file)
+  const offre = req.body.offre
+  res.json({ text, offre })
   console.log("Extraction de texte réussie")
 })
 

@@ -14,5 +14,14 @@ services:
       - pgdata:/var/lib/postgresql/data
       - ./server/db/seed.sql:/docker-entrypoint-initdb.d/seed.sql
 
+  ollama:
+    image: ollama/ollama
+    restart: unless-stopped
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama_data:/root/.ollama
+
 volumes:
   pgdata:
+  ollama_data:

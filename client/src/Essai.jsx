@@ -1,25 +1,34 @@
 import "./Essai.css"
-import { useRef } from 'react'
+import { useRef, useState } from 'react'
 
 export function Essai() {
+  const [cvLoaded, setCvLoaded] = useState(false)
+  const [cvFile, setCvFile] = useState(null)
+  const fileInputRef = useRef(null)
+  const offreRef = useRef(null)
 
-const fileInputRef = useRef(null)
+  const cvLoad = () => {
+    const file = fileInputRef.current.files[0]
+    if (!file) return
+    setCvFile(file)
+    setCvLoaded(true)
+  }
 
-const uploadCv = async ()=>{
-const file = fileInputRef.current.files[0]
-  if (!file) return
+  const uploadCv = async () => {
+    if (!cvFile) return
 
-  const formData = new FormData()
-  formData.append('cv', file)
+    const formData = new FormData()
+    formData.append('cv', cvFile)
+    formData.append('offre', offreRef.current.value)
 
-  const response = await fetch('http://localhost:3000/analyse', {
-    method: 'POST',
-    body: formData
-  })
+    const response = await fetch('http://localhost:3000/analyse', {
+      method: 'POST',
+      body: formData
+    })
 
-  const result = await response.json()
-  console.log(result)
-}
+    const result = await response.json()
+    console.log(result)
+  }
 
   return (
     <div className="full-section">
@@ -33,13 +42,33 @@ const file = fileInputRef.current.files[0]
             Obtenez un aperçu de votre score ATS et les 3 points les plus urgents à corriger — gratuitement, en 30 secondes.
           </p>
 
-          <div className="upload-zone">
-            <input type="file" accept=".pdf,.doc,.docx,.txt" ref={fileInputRef} onChange={uploadCv}/>
-            <div className="upload-icon">📄</div>
-            <h3>Déposez votre CV ici</h3>
-            <p>PDF, DOCX ou TXT · Max 5 MB</p>
-            <span className="btn-upload">Analyser gratuitement</span>
-          </div>
+          {!cvLoaded ? (
+            <div className="upload-zone">
+              <input type="file" accept=".pdf,.doc,.docx,.txt" ref={fileInputRef} onChange={cvLoad} />
+              <div className="upload-icon">📄</div>
+              <h3>Déposez votre CV ici</h3>
+              <p>PDF, DOCX ou TXT · Max 5 MB</p>
+            </div>
+          ) : (
+            <>
+              <div className="upload-result">
+                <div className="upload-result-left">
+                  <span className="upload-result-icon">📄</span>
+                  <p className="upload-result-filename">{cvFile.name}</p>
+                  <p className="upload-result-status">Fichier chargé</p>
+                  <button className="btn-modifier" onClick={() => { setCvLoaded(false); setCvFile(null) }}>Modifier</button>
+                </div>
+                <div className="upload-result-right">
+                  <textarea
+                    className="offre-textarea"
+                    placeholder="Collez ici l'énoncé de l'offre d'emploi..."
+                    ref={offreRef}
+                  />
+                </div>
+              </div>
+              <button className="btn-analyse" onClick={uploadCv}>Lancer l'analyse</button>
+            </>
+          )}
 
           <p className="essai-note">
             <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
