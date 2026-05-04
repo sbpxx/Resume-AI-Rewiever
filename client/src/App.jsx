@@ -9,6 +9,7 @@ import { Essai } from './Essai'
 import { Tarifs } from './Tarifs'
 import { Avis } from './Avis'
 import { Newsletter } from './Newsletter'
+import { Footer } from './Footer'
 
 function App() {
   const [isLogged,setIsLogged] = useState(false)
@@ -28,6 +29,7 @@ function App() {
     <Avis></Avis>
     <Intersection></Intersection>
     <Newsletter></Newsletter>
+    <Footer></Footer>
     </>
   )
 }
