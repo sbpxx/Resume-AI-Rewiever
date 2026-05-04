@@ -46,3 +46,32 @@ export async function extractText(file) {
     return file.buffer.toString('utf-8')
   }
 }
+
+export async function analyserCV(text, offre) {
+  const response = await fetch('http://localhost:11434/api/generate', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({
+      model: 'llama3.2',
+      prompt: `Tu es un expert RH. Analyse ce CV par rapport à l'offre d'emploi et retourne uniquement un JSON avec cette structure exacte :
+{
+  "score_ats": 0-100,
+  "points_positifs": ["..."],
+  "points_negatifs": ["..."],
+  "mots_cles_manquants": ["..."],
+  "suggestions": ["..."]
+}
+
+CV :
+${text}
+
+Offre d'emploi :
+${offre}`,
+      stream: false
+    })
+  })
+
+  const data = await response.json()
+  const raw = data.response.replace(/```json\n?/g, '').replace(/```/g, '').trim()
+  return JSON.parse(raw)
+}

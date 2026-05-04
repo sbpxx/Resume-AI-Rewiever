@@ -1,0 +1,155 @@
+.resultat-wrapper {
+  width: 100%;
+  padding: 0 48px 100px;
+}
+
+.resultat-inner {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* ─── SCORE ─── */
+.resultat-score-section {
+  text-align: center;
+  margin-bottom: 56px;
+}
+
+.resultat-label {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: #d4a44c;
+  margin-bottom: 16px;
+}
+
+.resultat-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(32px, 4vw, 54px);
+  font-weight: 400;
+  color: #f9f0dc;
+  margin-bottom: 32px;
+}
+
+.resultat-title em {
+  font-style: italic;
+  color: #f5dfa0;
+}
+
+.score-circle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  border: 3px solid #d4a44c;
+  background: rgba(212, 164, 76, 0.08);
+  box-shadow: 0 0 40px rgba(212, 164, 76, 0.15);
+}
+
+.score-value {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 64px;
+  font-weight: 300;
+  color: #f9f0dc;
+  line-height: 1;
+}
+
+.score-max {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  color: #8fa0b8;
+}
+
+/* ─── GRILLE ─── */
+.resultat-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+/* ─── CARTES ─── */
+.resultat-card {
+  background: rgba(17, 34, 64, 0.5);
+  border-radius: 14px;
+  padding: 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.resultat-card.positive {
+  border: 1px solid rgba(100, 200, 120, 0.2);
+}
+
+.resultat-card.negative {
+  border: 1px solid rgba(220, 80, 80, 0.2);
+}
+
+.resultat-card.keywords {
+  border: 1px solid rgba(212, 164, 76, 0.2);
+}
+
+.resultat-card.suggestions {
+  border: 1px solid rgba(120, 160, 220, 0.2);
+}
+
+.resultat-card-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-weight: 500;
+  color: #d4a44c;
+}
+
+.resultat-card ul,
+.resultat-card ol {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 18px;
+}
+
+.resultat-card ul li,
+.resultat-card ol li {
+  font-size: 14px;
+  color: #e8e0d0;
+  line-height: 1.6;
+}
+
+.resultat-card.positive ul li {
+  color: #90d4a0;
+}
+
+.resultat-card.negative ul li {
+  color: #e08080;
+}
+
+/* ─── TAGS MOTS CLÉS ─── */
+.keywords-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.keyword-tag {
+  background: rgba(212, 164, 76, 0.1);
+  border: 1px solid rgba(212, 164, 76, 0.3);
+  color: #e8c06a;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.05em;
+}
+
+@media (max-width: 900px) {
+  .resultat-wrapper {
+    padding: 0 24px 60px;
+  }
+
+  .resultat-grid {
+    grid-template-columns: 1fr;
+  }
+}

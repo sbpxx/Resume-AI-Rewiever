@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 import dotenv from 'dotenv'
 import pool from './db/db.js'
-import { configurationStorage, extractText } from './routes/analyse.js'
+import { configurationStorage, extractText, analyserCV } from './routes/analyse.js'
 
 dotenv.config()
 
@@ -27,10 +27,10 @@ app.get('/', (req, res) => {
 const upload = configurationStorage()
 
 app.post('/analyse', upload.single('cv'), async (req, res) => {
-  const file = req.file
   const text = await extractText(req.file)
   const offre = req.body.offre
-  res.json({ text, offre })
+  const analyse = await analyserCV(text, offre)
+  res.json(analyse)
   console.log("Extraction de texte réussie")
 })
 
