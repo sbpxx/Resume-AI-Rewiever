@@ -1,6 +1,17 @@
 import "./Resultat.css"
 
+function toArray(val) {
+  if (Array.isArray(val)) return val
+  if (typeof val === 'string') return val.split('\n').filter(Boolean)
+  return []
+}
+
 export function Resultat({ data }) {
+  const positifs = toArray(data.points_positifs)
+  const negatifs = toArray(data.points_negatifs)
+  const motsCles = toArray(data.mots_cles_manquants)
+  const suggestions = toArray(data.suggestions)
+
   return (
     <div className="resultat-wrapper">
       <div className="resultat-inner">
@@ -19,7 +30,7 @@ export function Resultat({ data }) {
           <div className="resultat-card positive">
             <h3 className="resultat-card-title">✦ Points positifs</h3>
             <ul>
-              {data.points_positifs.map((point, i) => (
+              {positifs.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}
             </ul>
@@ -28,7 +39,7 @@ export function Resultat({ data }) {
           <div className="resultat-card negative">
             <h3 className="resultat-card-title">✦ Points négatifs</h3>
             <ul>
-              {data.points_negatifs.map((point, i) => (
+              {negatifs.map((point, i) => (
                 <li key={i}>{point}</li>
               ))}
             </ul>
@@ -37,7 +48,7 @@ export function Resultat({ data }) {
           <div className="resultat-card keywords">
             <h3 className="resultat-card-title">✦ Mots-clés manquants</h3>
             <div className="keywords-list">
-              {data.mots_cles_manquants.map((mot, i) => (
+              {motsCles.map((mot, i) => (
                 <span key={i} className="keyword-tag">{mot}</span>
               ))}
             </div>
@@ -46,7 +57,7 @@ export function Resultat({ data }) {
           <div className="resultat-card suggestions">
             <h3 className="resultat-card-title">✦ Suggestions</h3>
             <ol>
-              {data.suggestions.map((suggestion, i) => (
+              {suggestions.map((suggestion, i) => (
                 <li key={i}>{suggestion}</li>
               ))}
             </ol>

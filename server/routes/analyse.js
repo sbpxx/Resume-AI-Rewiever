@@ -53,25 +53,41 @@ export async function analyserCV(text, offre) {
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
       model: 'llama3.2',
-      prompt: `Tu es un expert RH. Analyse ce CV par rapport à l'offre d'emploi et retourne uniquement un JSON avec cette structure exacte :
-{
-  "score_ats": 0-100,
-  "points_positifs": ["..."],
-  "points_negatifs": ["..."],
-  "mots_cles_manquants": ["..."],
-  "suggestions": ["..."]
-}
+      prompt: `Tu es un expert en recrutement et optimisation de CV. Tu dois analyser le CV d'un candidat et le comparer à une offre d'emploi spécifique.
 
-CV :
+RÈGLES IMPORTANTES :
+- Analyse UNIQUEMENT le contenu du CV fourni, pas l'offre
+- Les points_positifs = compétences du CV qui correspondent à l'offre
+- Les points_negatifs = compétences demandées dans l'offre qui sont absentes ou faibles dans le CV
+- Les mots_cles_manquants = mots-clés présents dans l'offre mais absents du CV
+- Les suggestions = actions concrètes que le candidat peut faire pour améliorer son CV
+- Le score_ats = pourcentage de correspondance entre le CV et l'offre (0 à 100)
+- Réponds UNIQUEMENT avec le JSON, sans texte avant ou après, sans markdown
+
+Format de réponse obligatoire :
+{"score_ats": <nombre>,"points_positifs": ["<point>"],"points_negatifs": ["<point>"],"mots_cles_manquants": ["<mot>"],"suggestions": ["<suggestion>"]}
+
+CV DU CANDIDAT :
 ${text}
 
-Offre d'emploi :
-${offre}`,
-      stream: false
+OFFRE D'EMPLOI :
+${offre}
+
+JSON :`,
+      stream: false,
+      options: {
+        num_predict: 1024,
+        temperature: 0.3
+      }
     })
   })
 
   const data = await response.json()
   const raw = data.response.replace(/```json\n?/g, '').replace(/```/g, '').trim()
-  return JSON.parse(raw)
+  try {
+    return JSON.parse(raw)
+  } catch (e) {
+    console.error('Réponse brute du modèle :', raw)
+    throw new Error('Le modèle a retourné un JSON invalide')
+  }
 }
