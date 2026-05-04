@@ -1,6 +1,26 @@
 import "./Essai.css"
+import { useRef } from 'react'
 
 export function Essai() {
+
+const fileInputRef = useRef(null)
+
+const uploadCv = async ()=>{
+const file = fileInputRef.current.files[0]
+  if (!file) return
+
+  const formData = new FormData()
+  formData.append('cv', file)
+
+  const response = await fetch('http://localhost:3000/analyse', {
+    method: 'POST',
+    body: formData
+  })
+
+  const result = await response.json()
+  console.log(result)
+}
+
   return (
     <div className="full-section">
       <div className="section-inner centered">
@@ -14,7 +34,7 @@ export function Essai() {
           </p>
 
           <div className="upload-zone">
-            <input type="file" accept=".pdf,.doc,.docx,.txt" />
+            <input type="file" accept=".pdf,.doc,.docx,.txt" ref={fileInputRef} onChange={uploadCv}/>
             <div className="upload-icon">📄</div>
             <h3>Déposez votre CV ici</h3>
             <p>PDF, DOCX ou TXT · Max 5 MB</p>

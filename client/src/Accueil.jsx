@@ -3,7 +3,7 @@ import "./Accueil.css"
 export function Accueil(){
   return(
       <section id="hero" style={{maxWidth:"none", padding:"0"}}>
-        <div class="hero-fade"></div>
+        <div className="hero-fade"></div>
           <video  muted={true}>
             <source type="video/mp4" src="../assets/hero-background.mp4"></source>
           </video>
